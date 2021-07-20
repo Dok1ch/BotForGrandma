@@ -64,13 +64,12 @@ def helper(message):
                    f"Я бот для бабули. У меня не так много возможностей.\n" \
                    f"<b>Вот что я могу!</b>\n" \
                    f"Если хочешь узнать погоду, введи или выбери из списка название города\n"
-    bot.send_message(message.chat.id, send_message, parse_mode='html')
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True, row_width=1)
     btn1 = types.KeyboardButton('Мантурово')
     btn2 = types.KeyboardButton('Сыктывкар')
     btn3 = types.KeyboardButton('Санкт-Петербург')
     markup.add(btn1, btn2, btn3)
-    bot.send_message(message.chat.id, reply_markup=markup)
+    bot.send_message(message.chat.id, send_message , reply_markup=markup, parse_mode='html')
     bot.register_next_step_handler(message, answer_weather)
 
 
